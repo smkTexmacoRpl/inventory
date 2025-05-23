@@ -16,8 +16,12 @@ class BrandFactory extends Factory
      */
     public function definition(): array
     {
+       $merek =[
+           'Polytron', 'Advan', 'Evercoss', 'Maspion', 'Denpoo', 'Sharp Indonesia', 'Samsung Indonesia', 'Xiaomi Indonesia',      
+       ];
+
         return [
-            'brand' => $this->faker->company(),
+            'brand' => $this->faker->randomElement($merek),
             'description' => $this->faker->sentence(),
             'created_at' => now(),
             'updated_at' => now()
