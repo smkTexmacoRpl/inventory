@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lokasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LokasiController extends Controller
 {
@@ -12,7 +13,12 @@ class LokasiController extends Controller
      */
     public function index()
     {
-        //
+      $lokasi = DB::table('lokasis')
+        // ->join('users', 'lokasi.user_id', '=', 'users.id')
+        ->select('lokasis.*')
+        ->get();
+
+        return view('lokasi.index', compact('lokasi'));  
     }
 
     /**
